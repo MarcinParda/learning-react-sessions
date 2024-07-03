@@ -15,7 +15,7 @@ import { Profile } from './components/Profile';
 import { PublicPage } from './components/PublicPage';
 
 const AppContent: React.FC = () => {
-  const { isAuthenticated, logout, isLoading } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -25,29 +25,12 @@ const AppContent: React.FC = () => {
     <div>
       <nav>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+          <PublicNavigationItems />
           {isAuthenticated ? (
-            <>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-              <li>
-                <button onClick={logout}>Logout</button>
-              </li>
-            </>
+            <AuthenticatedNavigationItems />
           ) : (
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
+            <UnauthenticatedNavigationItems />
           )}
-          <li>
-            <Link to="/public">Public Page</Link>
-          </li>
         </ul>
       </nav>
 
@@ -68,6 +51,41 @@ const AppContent: React.FC = () => {
     </div>
   );
 };
+
+const AuthenticatedNavigationItems: React.FC = () => {
+  const { logout } = useAuth();
+  return (
+    <>
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/profile">Profile</Link>
+      </li>
+      <li>
+        <button onClick={logout}>Logout</button>
+      </li>
+    </>
+  );
+};
+
+const UnauthenticatedNavigationItems: React.FC = () => (
+  <li>
+    <Link to="/login">Login</Link>
+  </li>
+);
+
+const PublicNavigationItems: React.FC = () => (
+  <>
+    <li>
+      <Link to="/public">Public Page</Link>
+    </li>
+
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+  </>
+);
 
 const App: React.FC = () => (
   <AuthProvider>
