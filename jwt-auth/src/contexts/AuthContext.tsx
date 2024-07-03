@@ -9,6 +9,7 @@ import {
   getAuthToken,
   logout as apiLogout,
   validateToken,
+  fetchUser,
 } from '../services/api';
 
 interface AuthContextType {
@@ -37,8 +38,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         const isValid = await validateToken(token);
         if (isValid) {
           setIsAuthenticated(true);
-          // In a real scenario, you'd fetch user data here
-          setUser({ id: '1', username: 'user' });
+          const userResponse = await fetchUser();
+          const user = JSON.parse(userResponse);
+          setUser(user);
         } else {
           // If the token is invalid, remove it
           apiLogout();
