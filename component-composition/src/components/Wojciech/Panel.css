@@ -1,0 +1,40 @@
+.panel {
+    border: 4px solid #ccc;
+    border-radius: 8px;
+    margin: 2rem;
+  }
+  
+  .panel-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .panel-header .icon {
+    margin-right: 10px;
+  }
+  
+  .panel-header-title {
+    margin: 0;
+  }
+  
+  .panel-header-buttons {
+    margin-left: auto;
+  }
+  
+  .panel-header-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .panel-content {
+    padding: 10px;
+  }
+  
+  .panel-content-button {
+    background: transparent;
+    border: 1px solid;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
