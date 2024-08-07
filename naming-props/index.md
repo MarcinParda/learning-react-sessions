@@ -2,13 +2,6 @@
 
 ## Komponenty
 
-Nazwa komponentu powinna być zapisana PascalCasem, czyli każde słowo zaczynamy z wielkiej litery. Robi się tak, aby łatwiej było odróżnić komponenty JSX od zwykłych elementów HTML.
-
-Zawsze staraj się używać postfixu, który opisuje czym ten komponent właściwie jest. Czy jest to button czy może formularz.
-
-Warto też dodać kontekst oraz funkcjonalność komponentu, jeśli komponent nie jest zbyt reużywalny. 
-Czyli nazwa komponentu = kontekst + funkcjonalność + typ komponentu.
-
 1. Używaj PascalCase dla nazw komponentów. Przykładowo: UserProfileCard, a nie userProfileCard lub user-profile-card.
 2. Zawsze staraj się używać suffixu, który opisuje czym ten komponent właściwie jest. Czy jest to button czy może formularz. Przykładowo: Button, SettingsForm.
 3. Używaj nazw, które dokładnie opisują przeznaczenie komponentu lub jego kontekstu. Przykładowo: UserProfileCard, CheckoutPaymentForm, AdminDashboardHeader.
